@@ -2,7 +2,7 @@ import React from 'react'
 import VideoDetails from './VideoDetails'
 import CommentContainer from './CommentsContainer'
 
-function VideoCard({ video }) {
+function VideoCard({ video, handleDelete }) {
     return (
         <div className="Container">
             <iframe
@@ -21,7 +21,7 @@ function VideoCard({ video }) {
                 downVotes={video.downvotes}
             />
             <hr />
-            <CommentContainer comments={video.comments} />
+            <CommentContainer comments={video.comments} handleDelete={handleDelete}  />
         </div>
     )
 }

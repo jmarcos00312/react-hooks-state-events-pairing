@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 
 
 
-function CommentCard({ comment }) {
-    console.log(comment)
-
+function CommentCard({ comment, handleDelete, videoComments }) {
     const [upVotes, setUpVotes] = useState(0)
     const [downVotes, setDownVotes] = useState(0)
 
@@ -16,18 +14,7 @@ function CommentCard({ comment }) {
     const handleDisLike = () => {
         setDownVotes(downVotes => downVotes + 1)
     }
-    // {
-    // const comments = comment.map(comment => {
-    //     return (
-    //         <div>
-    //             <button>Hide Comments</button>
-    //             <h3>{comment.user}</h3>
-    //             <p>{comment.comment}</p>
-    //             <button onClick={handleLike} className="like">👍 {upVotes}</button>
-    //             <button onClick={handleDisLike} className="dislike">👎 {downVotes}</button>
-    //         </div>
-    //     )
-    // })
+
 
     return (
         <div>
@@ -37,7 +24,9 @@ function CommentCard({ comment }) {
                 <p>{comment.comment}</p>
                 <button onClick={handleLike} className="like">👍 {upVotes}</button>
                 <button onClick={handleDisLike} className="dislike">👎 {downVotes}</button>
+                {/* <button onClick={(e) => handleDelete(e)}>Delete</button> */}
             </div>
+            <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }
